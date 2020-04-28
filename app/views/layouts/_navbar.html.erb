@@ -10,15 +10,21 @@
             <div class="ui dropdown item">
             Account <i class="dropdown icon"></i>
             <div class="menu">
-                <a class="item">Logout</a>
-                <%= link_to(login_path ,class:"item") do %>
+                <%= link_to(destroy_user_session_path ,class:"item",method: :delete) do %>
+                    <span>Logout</span>
+                <% end %>
+                <%= link_to(new_user_session_path ,class:"item") do %>
                     <span>Login</span>
                 <% end %>
-                <a class="item">Sign up</a>
+                <%= link_to(new_user_registration_path ,class:"item") do %>
+                    <span>Sign Up</span>
+                <% end %>
             </div>
             </div>
             <div class="item">
-                <div class="ui primary button">Sign Up</div>
+                <%= link_to(new_user_registration_path ,class:"ui primary button") do %>
+                    <span>Sign Up</span>
+                <% end %>
             </div>
         </div>
     </div>
