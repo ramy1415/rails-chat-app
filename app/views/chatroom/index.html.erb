@@ -13,14 +13,21 @@
                 </div>
             </div>
                 <div class="extra content">
-                    <form class="ui reply form">
+
+                    <%# <form class="ui reply form"> %>
+                    <%= form_with(scope: 'message' ,url: "messages/create", method: "post",class:"ui reply form") do |f| %>
                         <div class="field">
                             <div class="ui fluid icon input">
-                                <input type="text" placeholder="Enter a message...">
-                                <i class="bordered inverted orange edit icon"></i>
+                                <%= f.text_field :body ,class: "create_input",placeholder:"Enter a message..."%>
+                                <%= f.button do %>
+                                    <i class="bordered inverted orange edit icon"></i>
+                                <% end %>
+                                <%# <input type="text" placeholder="Enter a message...">
+                                <i class="bordered inverted orange edit icon"></i> %>
                             </div>
                         </div>
-                    </form>
+                    <% end %>
+                    <%# </form> %>
                 </div>
             </div>
     </div>
