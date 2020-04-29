@@ -10,22 +10,27 @@
             <div class="ui dropdown item">
             Account <i class="dropdown icon"></i>
             <div class="menu">
-                <%= link_to(destroy_user_session_path ,class:"item",method: :delete) do %>
-                    <span>Logout</span>
-                <% end %>
-                <%= link_to(new_user_session_path ,class:"item") do %>
-                    <span>Login</span>
-                <% end %>
-                <%= link_to(new_user_registration_path ,class:"item") do %>
-                    <span>Sign Up</span>
-                <% end %>
-            </div>
-            </div>
-            <div class="item">
-                <%= link_to(new_user_registration_path ,class:"ui primary button") do %>
-                    <span>Sign Up</span>
+                <% if user_signed_in? %>
+                    <%= link_to(destroy_user_session_path ,class:"item",method: :delete) do %>
+                        <span>Logout</span>
+                    <% end %>
+                <% else %>
+                    <%= link_to(new_user_session_path ,class:"item") do %>
+                        <span>Login</span>
+                    <% end %>
+                    <%= link_to(new_user_registration_path ,class:"item") do %>
+                        <span>Sign Up</span>
+                    <% end %>
                 <% end %>
             </div>
+            </div>
+            <% if !user_signed_in? %>
+                <div class="item">
+                    <%= link_to(new_user_registration_path ,class:"ui primary button") do %>
+                        <span>Sign Up</span>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>
